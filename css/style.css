@@ -964,7 +964,7 @@ main {
 
 /* ------------------------------ scroll reveal ------------------------------ */
 /* Applied via JS (script.js) to existing cards — no markup changes needed.
-           Elements start slightly lowered and faded, then settle into place. */
+             Elements start slightly lowered and faded, then settle into place. */
 
 .reveal-init {
   opacity: 0;
@@ -1149,7 +1149,7 @@ main {
 }
 
 /* one orchestrated load-in moment for the masthead: the title types itself
-           out (see script.js), with a blinking cursor while it's mid-line */
+             out (see script.js), with a blinking cursor while it's mid-line */
 .typewriter-typing::after {
   content: '';
   display: inline-block;
@@ -1214,8 +1214,8 @@ main {
   }
 
   /* The section nav becomes one horizontally-scrollable strip instead of
-             wrapping into several rows — a stack of nav rows was eating most of
-             the screen before any content appeared. Swipe sideways to see more. */
+               wrapping into several rows — a stack of nav rows was eating most of
+               the screen before any content appeared. Swipe sideways to see more. */
   .section-nav {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -1443,9 +1443,9 @@ main {
 }
 
 /* The button itself is now a round dial framing the real radio artwork,
-         with sound-wave rings that ping outward while music is genuinely playing
-         (driven by the <audio> element's real play/pause state in script.js —
-         not just the on/off intent, so it never animates on a blocked autoplay). */
+           with sound-wave rings that ping outward while music is genuinely playing
+           (driven by the <audio> element's real play/pause state in script.js —
+           not just the on/off intent, so it never animates on a blocked autoplay). */
 .radio-toggle {
   position: relative;
   width: 44px;
@@ -1491,8 +1491,8 @@ main {
 }
 
 /* Simple emoji fallback if the artwork fails to load — never a broken icon.
-         script.js swaps the <img> for this span directly, so no advanced CSS
-         selector support is needed for the fallback to actually show. */
+           script.js swaps the <img> for this span directly, so no advanced CSS
+           selector support is needed for the fallback to actually show. */
 .radio-image-fallback {
   display: flex;
   align-items: center;
@@ -1502,7 +1502,7 @@ main {
 }
 
 /* Sound-wave rings: hidden and still by default, only ping outward while
-         .audio-active is present (i.e. audio is actually, verifiably playing). */
+           .audio-active is present (i.e. audio is actually, verifiably playing). */
 .radio-toggle-pulse-ring {
   position: absolute;
   inset: 0;
@@ -1661,10 +1661,10 @@ main {
 }
 
 /* ==========================================================================
-     NIKKI TICKER — subtle data-paper polish
-     These overrides preserve the original broadsheet layout while tightening
-     the front-page proportions and adding restrained data-themed ornament.
-     ========================================================================== */
+       NIKKI TICKER — subtle data-paper polish
+       These overrides preserve the original broadsheet layout while tightening
+       the front-page proportions and adding restrained data-themed ornament.
+       ========================================================================== */
 
 /* A quiet background engraving: grid + data points, intentionally faint. */
 body::before {
@@ -1697,7 +1697,7 @@ main,
 }
 
 /* Keep the two front-page columns proportional rather than creating a huge
-                       visual void beneath the shorter left story. */
+                         visual void beneath the shorter left story. */
 .front-grid {
   grid-template-columns: minmax(0, 1.65fr) minmax(300px, 1fr);
   gap: 1.5rem;
@@ -1717,9 +1717,9 @@ main,
 }
 
 /* ============================================================================
-                     HEADLINE NEWS — HORIZONTAL OLD TV SIGNAL BUZZ
-                     Scoped ONLY to the Headline News photograph.
-                     ============================================================================ */
+                       HEADLINE NEWS — HORIZONTAL OLD TV SIGNAL BUZZ
+                       Scoped ONLY to the Headline News photograph.
+                       ============================================================================ */
 .headline-tv-screen {
   position: relative;
   width: 100%;
@@ -1736,7 +1736,7 @@ main,
 }
 
 /* Vertical signal bars moving LEFT → RIGHT.
-                     This is intentionally horizontal, rather than a vertical scan. */
+                       This is intentionally horizontal, rather than a vertical scan. */
 .headline-tv-screen::before {
   content: '';
   position: absolute;
@@ -1875,7 +1875,7 @@ main,
 }
 
 /* Real avatar images use the same circular treatment as the original
-                       placeholder. */
+                         placeholder. */
 .mini-me-frame .mini-me-img {
   display: block;
   width: 100%;
@@ -1886,7 +1886,7 @@ main,
 }
 
 /* A newspaper-style data engraving that occupies some of the otherwise empty
-                       lower-left front-page area. */
+                         lower-left front-page area. */
 .data-engraving {
   margin-top: 1.2rem;
   border-top: 1px solid var(--paper-shadow);
@@ -1996,7 +1996,7 @@ main,
 }
 
 /* Sound-effect gain was raised (see script.js) so the paper-flip and click
-                       sounds keep presence over the music without feeling like a loud UI click. */
+                         sounds keep presence over the music without feeling like a loud UI click. */
 
 @media (max-width: 860px) {
   .front-grid {
@@ -2009,17 +2009,22 @@ main,
 }
 
 /* ==========================================================================
-                   THE PROJECT DESK — newspaper-style project cards + case-file dossier
-                   Cards show only the essentials; the "Open Case File" button reveals the
-                   full write-up in a focused note, inspired by the document/journal screens
-                   in games like Resident Evil — the page stays visible behind a dimmed,
-                   blurred backdrop while the note itself takes full attention.
+                     THE PROJECT DESK — newspaper-style project cards + case-file dossier
+                     Cards show only the essentials; the "Open Case File" button reveals the
+                     full write-up in a focused note, inspired by the document/journal screens
+                     in games like Resident Evil — the page stays visible behind a dimmed,
+                     blurred backdrop while the note itself takes full attention.
+    
+                     Browsing between cards is a card-catalog drawer, not a slideshow: drag or
+                     swipe the row, or press the printer's-manicule stamps (☜ ☞) at either
+                     side — a nod to the pointing-hand ornament old typesetters used in the
+                     margins to say "see here."
   
-                   Browsing between cards is a card-catalog drawer, not a slideshow: drag or
-                   swipe the row, or press the printer's-manicule stamps (☜ ☞) at either
-                   side — a nod to the pointing-hand ornament old typesetters used in the
-                   margins to say "see here."
-                   ========================================================================== */
+                     Always shows exactly ONE card at a time, on every screen size — desktop
+                     and mobile alike — sized to a comfortable reading width and centered in
+                     the section, rather than switching between a 2-up and 1-up layout at a
+                     breakpoint.
+                     ========================================================================== */
 
 .project-carousel {
   display: flex;
@@ -2030,12 +2035,13 @@ main,
 .project-viewport {
   flex: 1;
   min-width: 0;
+  max-width: 640px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
 .project-track {
   display: flex;
-  gap: 1.6rem;
   cursor: grab;
   transition: transform 0.45s cubic-bezier(0.22, 0.8, 0.24, 1);
 }
@@ -2045,7 +2051,10 @@ main,
 }
 
 .project-track .project-card {
-  flex: none;
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   user-select: none;
 }
 .project-track .project-card img {
@@ -2098,7 +2107,7 @@ main,
 }
 
 /* The full write-up lives here in the markup (so it's easy to author) but
-                     stays out of the flow until cloned into the dossier note by script.js. */
+                       stays out of the flow until cloned into the dossier note by script.js. */
 .dossier-content[hidden] {
   display: none;
 }
@@ -2166,56 +2175,44 @@ main,
   border-color: var(--accent);
 }
 
-/*
-    NOTE: the old rule here shrank the project cards' padding, tag, headline
-    and teaser sizing behind `@media (max-width: 640px)`. That's replaced
-    below by `.project-desk-single` (a class JS applies whenever it decides
-    the carousel should show one card at a time) so the "compact card"
-    styling always matches whatever JS actually rendered — even on devices
-    that report an unusual viewport width.
-  */
-.project-desk-single .project-nav {
-  width: 34px;
-  height: 34px;
-  font-size: 1.1rem;
-}
-
-.project-desk-single .project-carousel {
-  gap: 0.4rem;
-}
-
-.project-desk-single .project-track {
-  gap: 1rem;
-}
-
-.project-desk-single .project-card {
-  padding: 0.85rem 0.9rem 1rem;
-}
-
-.project-desk-single .project-tag {
-  font-size: 0.6rem;
-  padding: 0.16rem 0.45rem;
-  margin-bottom: 0.5rem;
-}
-
-.project-desk-single .project-photo {
-  margin-bottom: 0.6rem;
-}
-
-.project-desk-single .project-headline {
-  font-size: 1rem;
-  line-height: 1.2;
-  margin-bottom: 0.35rem;
-}
-
-.project-desk-single .project-teaser {
-  font-size: 0.85rem;
-  line-height: 1.4;
-  margin-bottom: 0.75rem;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
+/* Slightly smaller chrome on narrow screens — the card itself stays
+      single/full-width at every size (see rules above), this just tightens
+      the surrounding nav buttons and spacing so they don't crowd a small
+      viewport. */
+@media (max-width: 560px) {
+  .project-carousel {
+    gap: 0.4rem;
+  }
+  .project-nav {
+    width: 34px;
+    height: 34px;
+    font-size: 1.1rem;
+  }
+  .project-card {
+    padding: 0.85rem 0.9rem 1rem;
+  }
+  .project-tag {
+    font-size: 0.6rem;
+    padding: 0.16rem 0.45rem;
+    margin-bottom: 0.5rem;
+  }
+  .project-photo {
+    margin-bottom: 0.6rem;
+  }
+  .project-headline {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+  }
+  .project-teaser {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
 }
 
 /* ------------------------------ case-file dossier overlay ------------------------------ */
@@ -2382,8 +2379,8 @@ body.dossier-lock {
 }
 
 /* ============================================================
-             SOCIETY PAGE — clearer organization names + readable body
-             ============================================================ */
+               SOCIETY PAGE — clearer organization names + readable body
+               ============================================================ */
 
 .gossip-entry {
   font-family: var(--font-body);
@@ -2430,12 +2427,12 @@ body.dossier-lock {
 }
 
 /* ============================================================
-     FINAL MOBILE FIXES
-     Keep desktop styling unchanged.
-     ============================================================ */
+       FINAL MOBILE FIXES
+       Keep desktop styling unchanged.
+       ============================================================ */
 @media screen and (max-width: 640px) {
   /* Completely disable the viewport/body vignette on mobile.
-       !important is intentional so this remains the final authority. */
+         !important is intentional so this remains the final authority. */
   body::after {
     content: none !important;
     display: none !important;
@@ -2448,31 +2445,4 @@ body.dossier-lock {
     max-width: 100%;
     overflow: hidden;
   }
-}
-
-/*
-    Project Desk single-card layout — driven by the `.project-desk-single`
-    class that JS toggles on #projects (see script.js). This is intentionally
-    NOT inside a `max-width` media query: relying on a guessed screen-width
-    breakpoint here is exactly what caused two narrow, stretched cards to
-    show on some phones whose browser reports a wider-than-expected CSS
-    viewport. JS measures the carousel's real available width and applies
-    this class only when there truly isn't room for two comfortable cards,
-    so this rule and the JS decision can never disagree.
-  */
-#projects.project-desk-single .project-viewport {
-  width: 100%;
-  min-width: 0;
-  overflow: hidden;
-}
-
-#projects.project-desk-single .project-track {
-  gap: 1rem;
-}
-
-#projects.project-desk-single .project-track .project-card {
-  flex: 0 0 100% !important;
-  width: 100% !important;
-  max-width: 100%;
-  min-width: 0;
 }

@@ -452,9 +452,9 @@
     if (promise && typeof promise.catch === 'function') {
       promise.catch(function () {
         /*
-              Browser autoplay policy may block
-              playback until the user interacts.
-            */
+                Browser autoplay policy may block
+                playback until the user interacts.
+              */
       });
     }
   }
@@ -847,8 +847,8 @@
     });
 
   /* ========================================================================
-         PROJECT CAROUSEL
-         ======================================================================== */
+           PROJECT CAROUSEL
+           ======================================================================== */
 
   var projectCarousel = document.getElementById('project-carousel');
 
@@ -866,25 +866,13 @@
     var projectCards = Array.prototype.slice.call(projectTrack.children);
 
     /*
-          IMPORTANT FIX:
-  
-          Decide 1-vs-2 cards from the carousel's own available width
-          rather than window.innerWidth. Some devices (display-scaling
-          settings, unusual DPI configurations, etc.) report a much wider
-          CSS viewport than their physical screen suggests, which made a
-          fixed window-width breakpoint unreliable — the carousel would
-          pick "desktop" (2 cards) on phones that clearly needed 1.
-  
-          Measuring the viewport's own clientWidth and comparing it
-          against a minimum comfortable card width sidesteps that
-          entirely: whatever number a device reports, two cards only
-          ever show if there's genuinely room for two.
-        */
+            Always show exactly one project card per page, on every screen
+            size — desktop and mobile alike. The card's own width is capped
+            and centered by CSS (see .project-viewport), so this just tells
+            the measurement/shift math below there is always 1 card per page.
+          */
     function getVisiblePerPage() {
-      var available = projectViewport.clientWidth;
-      var minComfortableCardWidth = 300; // don't let a card get narrower than this
-      var estimatedGap = 26; // approx track gap in px
-      return available < minComfortableCardWidth * 2 + estimatedGap ? 1 : 2;
+      return 1;
     }
 
     var visiblePerPage = getVisiblePerPage();
@@ -945,10 +933,10 @@
 
     function measureProjectCarousel() {
       /*
-            Recalculate this every time the viewport
-            changes. This is the important part that
-            fixes mobile.
-          */
+              Recalculate this every time the viewport
+              changes. This is the important part that
+              fixes mobile.
+            */
       visiblePerPage = getVisiblePerPage();
 
       totalPages = Math.max(1, Math.ceil(projectCards.length / visiblePerPage));
@@ -958,14 +946,14 @@
       trackGap = parseFloat(getComputedStyle(projectTrack).columnGap) || 0;
 
       /*
-            Calculate exact card width.
-  
-            1 card on mobile:
-              viewportWidth
-  
-            2 cards on desktop:
-              (viewportWidth - gap) / 2
-          */
+              Calculate exact card width.
+    
+              1 card on mobile:
+                viewportWidth
+    
+              2 cards on desktop:
+                (viewportWidth - gap) / 2
+            */
       var cardWidth =
         (viewportWidth - trackGap * (visiblePerPage - 1)) / visiblePerPage;
 
@@ -1034,25 +1022,25 @@
 
     function layoutProjectCarousel() {
       /*
-            Important order:
-  
-            1. Recalculate mobile/desktop mode
-            2. Recalculate card width
-            3. Rebuild dots
-            4. Recalculate current page
-            5. Reposition track
-          */
+              Important order:
+    
+              1. Recalculate mobile/desktop mode
+              2. Recalculate card width
+              3. Rebuild dots
+              4. Recalculate current page
+              5. Reposition track
+            */
 
       visiblePerPage = getVisiblePerPage();
 
       totalPages = Math.max(1, Math.ceil(projectCards.length / visiblePerPage));
 
       /*
-            NEW: stamp the decision onto the section as a class, so CSS
-            can key off the exact same source of truth JS just used —
-            rather than re-guessing a window-width breakpoint of its own
-            that could disagree with what JS decided.
-          */
+              NEW: stamp the decision onto the section as a class, so CSS
+              can key off the exact same source of truth JS just used —
+              rather than re-guessing a window-width breakpoint of its own
+              that could disagree with what JS decided.
+            */
       var projectsSection = document.getElementById('projects');
 
       if (projectsSection) {
@@ -1123,8 +1111,8 @@
     }
 
     /* ====================================================================
-           DRAG / SWIPE
-           ==================================================================== */
+             DRAG / SWIPE
+             ==================================================================== */
 
     var dragState = null;
 
@@ -1136,18 +1124,18 @@
       }
 
       /*
-              VERY IMPORTANT:
-  
-              Do not capture pointerdown from:
-              - buttons
-              - links
-              - inputs
-              - selects
-              - labels
-  
-              This prevents Open Case File from
-              fighting with the drag mechanic.
-            */
+                VERY IMPORTANT:
+    
+                Do not capture pointerdown from:
+                - buttons
+                - links
+                - inputs
+                - selects
+                - labels
+    
+                This prevents Open Case File from
+                fighting with the drag mechanic.
+              */
       var interactiveTarget =
         event.target && event.target.closest
           ? event.target.closest('button, a, input, textarea, select, label')
@@ -1223,9 +1211,9 @@
     projectTrack.addEventListener('pointercancel', endProjectDrag);
 
     /*
-          Prevent a drag release from accidentally
-          triggering a click.
-        */
+            Prevent a drag release from accidentally
+            triggering a click.
+          */
     projectTrack.addEventListener(
       'click',
       function (event) {
